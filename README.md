@@ -9,6 +9,7 @@ It is specifically developed for Choose Your Own Adventure and Interactive Ficti
 * A list of all trees in the current project. By folder/name.
 * Tooltips. Maybe.
 * Allow the undoing of node Deletion.
+* Saving of .tree files in a human readable, and easily editable, format. (Port them to a real writing tool!)
 
 Usage:
 
