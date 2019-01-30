@@ -3,3 +3,16 @@
 YouHaveATree is a visual aid for text snipped organization and nesting.
 
 It is specifically developed for Choose Your Own Adventure and Interactive Fiction _drafting_.
+
+* Planned Features:
+* Return button goes back up to the previous tree.
+* A list of all trees in the current project. By folder/name.
+* Tooltips. Maybe.
+
+Sample Images:
+
+![Alt text](/Demo%20Tree%20and%20Images/2.png?raw=true "Title")
+
+![Alt text](/Demo%20Tree%20and%20Images/1.png?raw=true "Title")
+
+![Alt text](/Demo%20Tree%20and%20Images/0.png?raw=true "Title")
