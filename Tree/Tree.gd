@@ -10,6 +10,7 @@ var selected_node = false
 
 func _ready():
 	add_valid_connection_type(0, 0)
+	add_valid_right_disconnect_type(0)
 
 
 func _on_Tree_connection_request(from, from_slot, to, to_slot):
@@ -28,6 +29,7 @@ func spawn_node(type, position, from = false):
 	if not from:
 		if selected_node and selected_node.selected:
 			from = selected_node.name
+	
 	var n
 	if type == 0:
 		n = TextNode.instance()

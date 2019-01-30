@@ -4,7 +4,7 @@
 [ext_resource path="res://AutoSave/AutoSave.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tree/Tree.tscn" type="PackedScene" id=3]
 
-[node name="Main" type="VBoxContainer"]
+[node name="Main" type="VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
