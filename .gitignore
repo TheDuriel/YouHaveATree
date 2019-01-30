@@ -6,3 +6,7 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+
+# My ignores
+.deleteme/
+.addons/
