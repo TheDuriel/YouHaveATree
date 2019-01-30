@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme/Theme.theme" type="Theme" id=1]
+[ext_resource path="res://Tree/Tree.gd" type="Script" id=2]
+[ext_resource path="res://Tree/Input.gd" type="Script" id=3]
+
+[node name="Tree" type="GraphEdit" groups=[
+"trees",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1600.0
+margin_bottom = 860.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+right_disconnects = false
+scroll_offset = Vector2( 0, 0 )
+snap_distance = 32
+use_snap = true
+zoom = 1.0
+script = ExtResource( 2 )
+
+[node name="Input" type="Node" parent="." index="0"]
+
+script = ExtResource( 3 )
+
+[connection signal="connection_request" from="." to="." method="_on_Tree_connection_request"]
+
+[connection signal="disconnection_request" from="." to="." method="_on_Tree_disconnection_request"]
+
+[connection signal="gui_input" from="." to="Input" method="_on_Tree_gui_input"]
+
+[connection signal="node_selected" from="." to="." method="_on_Tree_node_selected"]
+
+

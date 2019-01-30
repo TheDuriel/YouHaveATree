@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TreeNode/TreeNode.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TreeNode/TextNode/Logic.gd" type="Script" id=2]
+
+[node name="TextNode" instance=ExtResource( 1 )]
+
+title = "Paragraph"
+script = ExtResource( 2 )
+
+[node name="M" parent="." index="0"]
+
+margin_right = 260.0
+margin_bottom = 218.0
+
+[node name="TextEdit" type="TextEdit" parent="M" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 22.0
+margin_right = 256.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 256, 192 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = ""
+readonly = false
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = false
+highlight_all_occurrences = false
+override_selected_font_color = false
+context_menu_enabled = true
+smooth_scrolling = false
+v_scroll_speed = 80.0
+hiding_enabled = 0
+wrap_lines = false
+caret_block_mode = false
+caret_blink = true
+caret_blink_speed = 0.65
+caret_moving_by_right_click = true
+
+[connection signal="text_changed" from="M/TextEdit" to="." method="_on_TextEdit_text_changed"]
+
+

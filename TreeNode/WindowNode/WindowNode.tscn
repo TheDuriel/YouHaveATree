@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TreeNode/TreeNode.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TreeNode/WindowNode/WindowNode.gd" type="Script" id=2]
+
+[node name="WindowNode" instance=ExtResource( 1 )]
+
+title = "Window"
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="M" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 22.0
+margin_right = 128.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Open New Tree"
+flat = false
+align = 1
+
+[connection signal="pressed" from="M/Button" to="." method="_on_Button_pressed"]
+
+

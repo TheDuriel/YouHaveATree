@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Popup/Popup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Popup/OpenProject/OpenProject.gd" type="Script" id=2]
+
+[node name="Popup" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="FileDialog" type="FileDialog" parent="." index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 600, 400 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Open a Directory"
+resizable = false
+dialog_hide_on_ok = false
+mode_overrides_title = true
+mode = 2
+access = 2
+filters = PoolStringArray(  )
+show_hidden_files = false
+current_dir = "F:/Nemeton/Tree"
+current_file = ""
+current_path = "F:/Nemeton/Tree/"
+
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_FileDialog_dir_selected"]
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+
+[connection signal="visibility_changed" from="FileDialog" to="." method="_on_FileDialog_visibility_changed"]
+
+
