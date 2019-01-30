@@ -8,6 +8,7 @@ It is specifically developed for Choose Your Own Adventure and Interactive Ficti
 * Return button goes back up to the previous tree.
 * A list of all trees in the current project. By folder/name.
 * Tooltips. Maybe.
+* Allow the undoing of node Deletion.
 
 Usage:
 
