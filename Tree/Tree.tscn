@@ -4,7 +4,7 @@
 [ext_resource path="res://Tree/Tree.gd" type="Script" id=2]
 [ext_resource path="res://Tree/Input.gd" type="Script" id=3]
 
-[node name="Tree" type="GraphEdit" groups=[
+[node name="Tree" type="GraphEdit" index="0" groups=[
 "trees",
 ]]
 

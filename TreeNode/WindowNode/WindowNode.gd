@@ -9,6 +9,7 @@ func _on_Button_pressed():
 		tree_path = yield(pop, "file_selected")
 		tree_path = tree_path.right(Global.project_dir.length() + 1)
 		$"M/Button".text = tree_path.replace(".tree", "") 
+		Global.emit_signal("directories_edited")
 	
 	Global.open_tree(tree_path)
 

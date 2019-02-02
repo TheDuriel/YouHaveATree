@@ -3,7 +3,7 @@
 [ext_resource path="res://Theme/Theme.theme" type="Theme" id=1]
 [ext_resource path="res://TreeNode/TreeNode.gd" type="Script" id=2]
 
-[node name="TreeNode" type="GraphNode"]
+[node name="TreeNode" type="GraphNode" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -57,5 +57,7 @@ custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
 
 [connection signal="close_request" from="." to="." method="_on_TreeNode_close_request"]
+
+[connection signal="offset_changed" from="." to="." method="_on_TreeNode_offset_changed"]
 
 

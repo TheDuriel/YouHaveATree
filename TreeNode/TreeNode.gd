@@ -21,3 +21,7 @@ func delete_self():
 	Global.unsaved_changes = true
 	get_parent().remove_node_connections(self.name)
 	queue_free()
+
+
+func _on_TreeNode_offset_changed():
+	Global.unsaved_changes = true

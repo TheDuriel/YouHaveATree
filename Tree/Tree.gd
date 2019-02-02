@@ -8,6 +8,7 @@ onready var my_group = str(get_instance_id()) + "_node"
 
 var selected_node = false
 
+
 func _ready():
 	add_valid_connection_type(0, 0)
 	add_valid_right_disconnect_type(0)
@@ -69,7 +70,7 @@ func save_tree():
 		save_data[0] = save_data[0].replace("@", "")
 		nodes.append(i.get_save_data())
 	
-	return {"connections" : connections, "nodes" : nodes}
+	return {"connections" : connections, "nodes" : nodes, "camera" : scroll_offset}
 
 
 func open_tree(data):
@@ -83,6 +84,9 @@ func open_tree(data):
 	var connections = data.connections
 	for i in connections:
 		connect_node(i[0], 0, i[1], 0)
+	
+	if data.has("camera"):
+		scroll_offset = data.camera
 
 
 func close_tree():

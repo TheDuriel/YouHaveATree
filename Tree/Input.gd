@@ -34,3 +34,8 @@ func _on_Tree_gui_input(event):
 		if dragging:
 			tree.scroll_offset += -event.relative
 			get_tree().set_input_as_handled()
+	
+	if event is InputEventKey:
+		if event.scancode == KEY_BACKSPACE and event.pressed:
+			Global.go_to_previous_tree()
+			get_tree().set_input_as_handled()

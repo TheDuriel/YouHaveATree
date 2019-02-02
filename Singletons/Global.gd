@@ -2,14 +2,18 @@ extends Node
 
 signal changes_saved
 signal changes_unsaved
+signal directories_edited
+signal project_dir_changed
+signal current_tree_dir_changed
 
 const default_project_folder = "default_project/"
 
-onready var tree = get_tree().get_nodes_in_group("trees")[0]
+onready var tree = get_tree_editor()
 
 var default_project_dir = get_default_project_dir()
 var project_dir
 var current_tree_dir
+var tree_history = []
 
 var unsaved_changes = false setget set_unsaved_changes
 var popup
@@ -18,6 +22,7 @@ var popup
 func _ready():
 	var pop = open_folder_dialogue(default_project_dir, FileDialog.MODE_OPEN_DIR, false)
 	project_dir = yield(pop, "directory_selected")
+	emit_signal("project_dir_changed")
 	open_tree("root.tree")
 
 
@@ -25,6 +30,12 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		save_project()
 		get_tree().quit()
+
+
+func get_tree_editor():
+	var group_nodes = get_tree().get_nodes_in_group("trees")
+	if not group_nodes.empty():
+		return group_nodes[0]
 
 
 func get_default_project_dir():
@@ -65,17 +76,22 @@ func open_folder_dialogue(path, mode, allow_cancel = true):
 	p.set_path(path)
 	p.set_mode(mode)
 	p.set_allow_cancel(allow_cancel)
-	$"/root/Main".add_child(p)
-	
+	if $"/root/Main":
+		$"/root/Main".add_child(p)
 	return p
 
 
 func open_tree(relative_path):
 	if unsaved_changes:
 		save_project()
-	tree.close_tree()
 	
 	var path = project_dir.plus_file(relative_path)
+	
+	printt(path, current_tree_dir)
+	if path == current_tree_dir:
+		return
+	
+	tree.close_tree()
 	
 	var f = File.new()
 	
@@ -94,3 +110,14 @@ func open_tree(relative_path):
 	
 	var data = f.get_var()
 	tree.open_tree(data)
+	
+	tree_history.push_front(relative_path)
+	emit_signal("current_tree_dir_changed", relative_path)
+
+
+func go_to_previous_tree():
+	print(tree_history)
+	if not tree_history.empty():
+		var prev_tree = tree_history[-1]
+		tree_history.pop_back()
+		open_tree(prev_tree)
