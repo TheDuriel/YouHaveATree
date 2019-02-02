@@ -87,7 +87,6 @@ func open_tree(relative_path):
 	
 	var path = project_dir.plus_file(relative_path)
 	
-	printt(path, current_tree_dir)
 	if path == current_tree_dir:
 		return
 	
@@ -116,7 +115,6 @@ func open_tree(relative_path):
 
 
 func go_to_previous_tree():
-	print(tree_history)
 	if not tree_history.empty():
 		var prev_tree = tree_history[-1]
 		tree_history.pop_back()

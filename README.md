@@ -27,3 +27,51 @@ Sample Images:
 ![Alt text](/Demo%20Tree%20and%20Images/1.png?raw=true "Title")
 
 ![Alt text](/Demo%20Tree%20and%20Images/0.png?raw=true "Title")
+
+# .tree File Specifications
+
+Each .tree file represents one tree in your project. It is stored in plain text, using the below format:
+
+```
+YouHaveATree .tree file.
+
+###META###
+camera_pos = [128, 0]
+
+###CONNECTIONS###
+[node_a, node_b]
+
+###NODES###
+node_name = node_a
+node_type = 0
+node_pos = (0, 0)
+some text
+
+node_name = node_b
+node_type = 0
+node_pos = (256, 0)
+some text
+
+
+```
+
+```
+Header
+empty_line
+META Header
+property'space'='space'value # variable
+... repeat above for each meta property
+empty_line
+CONNECTIONS Header
+from_node_name,'space'to_node_name # string, string
+... repeat above for each connection
+empty_line
+NODES Header
+node_name'space'='space'node_name # string
+node_type'space'='space'node_type # integer
+node_position'space'='space'node_position # [x_integer, y_integer]
+multiline_string_representing_node_data
+empty_line
+... repeat above for each node
+empty_line #end of file.
+```

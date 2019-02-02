@@ -1,0 +1,20 @@
+YouHaveATree .tree file.
+
+###META###
+camera_position = [128, 0]
+
+###CONNECTIONS###
+[node_a, node_b]
+
+###NODES###
+node_name = node_a
+node_type = 0
+node_position = (0, 0)
+some 
+text
+
+node_name = node_b
+node_type = 0
+node_position = (256, 0)
+some text
+
